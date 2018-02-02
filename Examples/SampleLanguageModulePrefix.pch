@@ -1,0 +1,23 @@
+
+#include <objc/objc.h>	//	this sets up "nil" appropriately
+
+#ifndef NULL
+# if __has_feature(cxx_nullptr)
+#   define NULL nullptr
+# else
+#   define NULL __DARWIN_NULL
+# endif
+#endif
+
+#define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES	1
+#include <AssertMacros.h>					// necessary to include before CoreServices.h
+
+#include <sys/types.h>
+#include <wchar.h>
+#include <wctype.h>
+
+#if __OBJC__
+#include <Cocoa/Cocoa.h>
+#endif
+
+#include <CoreFoundation/CoreFoundation.h>

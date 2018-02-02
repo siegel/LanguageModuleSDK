@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<false/>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>and</string>
+		<string>array</string>
+		<string>begin</string>
+		<string>case</string>
+		<string>const</string>
+		<string>div</string>
+		<string>do</string>
+		<string>downto</string>
+		<string>else</string>
+		<string>end</string>
+		<string>file</string>
+		<string>for</string>
+		<string>function</string>
+		<string>goto</string>
+		<string>if</string>
+		<string>implementation</string>
+		<string>in</string>
+		<string>inherited</string>
+		<string>inline</string>
+		<string>interface</string>
+		<string>label</string>
+		<string>mod</string>
+		<string>nil</string>
+		<string>not</string>
+		<string>object</string>
+		<string>of</string>
+		<string>or</string>
+		<string>otherwise</string>
+		<string>packed</string>
+		<string>procedure</string>
+		<string>program</string>
+		<string>record</string>
+		<string>repeat</string>
+		<string>set</string>
+		<string>string</string>
+		<string>then</string>
+		<string>to</string>
+		<string>type</string>
+		<string>unit</string>
+		<string>univ</string>
+		<string>until</string>
+		<string>uses</string>
+		<string>var</string>
+		<string>while</string>
+		<string>with</string>
+	</array>
+	<key>BBLMLanguageCode</key>
+	<string>CPas</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>Codeless Pascal Language Module</string>
+	<key>BBLMScansFunctions</key>
+	<true/>
+	<key>Language Features</key>
+	<dict>
+		<key>Comment Pattern</key>
+		<string>(?x:
+			(?&gt;	{	(?s:.*?)	(?: } | \z )	)
+		)</string>
+		<key>Function Pattern</key>
+		<string>(?x:
+			(?P&lt;function&gt;
+				
+				(?&gt; \b (?: procedure | function ) \b )
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment)
+					)
+				)*
+				
+				(?P&lt;function_name&gt;
+				
+					(?&gt; _* [A-Za-z] [A-Za-z0-9_]* )
+				
+				)
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment)
+					)
+				)*
+				
+				(?:
+					\(
+						(?:
+							(?&gt;
+								(?&gt; [^{)]+ ) | (?P&gt;comment)
+							)
+						)*
+					\)
+				)?
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment)
+					)
+				)*
+				
+				(?:
+					:
+					
+					(?:
+						(?&gt;
+							(?&gt; \s+ ) | (?P&gt;comment)
+						)
+					)*
+					
+					(?&gt; _* [A-Za-z] [A-Za-z0-9_]* )
+					
+					(?:
+						(?&gt;
+							(?&gt; \s+ ) | (?P&gt;comment)
+						)
+					)*
+				)?
+				
+				;
+				
+				(?&gt;
+					(?:
+						(?&gt;
+							(?&gt; \s+ ) | (?P&gt;comment)
+						)
+					)*
+				)
+				
+				(?! \b (?: forward | extern ) \b )
+				
+				(?s: .*? )
+				
+				(?P&lt;block&gt;
+					(?&gt; \b (?: begin | case ) \b )
+						(?:
+							(?:
+								(?&gt; [^'"{a-z]+ )													|
+								(?&gt; (?(?! \b (?: begin | end | case ) \b ) [a-z]+ [^'"{a-z]* ) )	|
+								(?P&gt;comment)														|
+								(?P&gt;string)														|
+								(?P&gt;block)
+							)
+						)*?
+					\b end \b
+				)
+			)
+		)</string>
+		<key>Identifier and Keyword Character Class</key>
+		<string>0-9A-Z_a-z</string>
+		<key>Skip Pattern</key>
+		<string>(?x:
+			(?&gt;
+				(?P&gt;comment) | (?P&gt;string)
+			)
+		)</string>
+		<key>String Pattern</key>
+		<string>(?x:
+			(?&gt;	"	(?: "" | [^"] )*?		(?: " | $)	)	|
+			(?&gt;	'	(?: '' | [^'] )*?		(?: ' | $)	)
+		)</string>
+	</dict>
+</dict>
+</plist>

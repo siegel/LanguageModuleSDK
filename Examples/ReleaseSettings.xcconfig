@@ -1,0 +1,13 @@
+//	-*- x-counterpart: DebugSettings.xcconfig -*-
+
+#include "SampleSharedLanguageModules.xcconfig"
+
+//	any settings specific to release builds should go after this line ---
+
+GCC_PREPROCESSOR_DEFINITIONS = qDebug=0
+GCC_OPTIMIZATION_LEVEL = s
+
+OTHER_CFLAGS = -Winit-self -fasm-blocks
+
+STRIP_INSTALLED_PRODUCT = YES
+DEPLOYMENT_POSTPROCESSING = YES

@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E1D262C068B4F4D00DA0BE2 /* TeXModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E1D2628068B4F4D00DA0BE2 /* TeXModule.h */; };
+		2E1D262D068B4F4D00DA0BE2 /* scanTeX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D2629068B4F4D00DA0BE2 /* scanTeX.mm */; };
+		2E1D262E068B4F4D00DA0BE2 /* TeXModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D262A068B4F4D00DA0BE2 /* TeXModule.mm */; };
+		2E1D262F068B4F4D00DA0BE2 /* parseTeX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D262B068B4F4D00DA0BE2 /* parseTeX.mm */; };
+		5F05133B05A0957400BD0E76 /* BBLMTextIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EADE3E1056EA12A004A4EFC /* BBLMTextIterator.h */; };
+		5F05133C05A0957400BD0E76 /* BBLMInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EADE3E2056EA12A004A4EFC /* BBLMInterface.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E1D2628068B4F4D00DA0BE2 /* TeXModule.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TeXModule.h; sourceTree = "<group>"; };
+		2E1D2629068B4F4D00DA0BE2 /* scanTeX.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = scanTeX.mm; sourceTree = "<group>"; };
+		2E1D262A068B4F4D00DA0BE2 /* TeXModule.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = TeXModule.mm; sourceTree = "<group>"; };
+		2E1D262B068B4F4D00DA0BE2 /* parseTeX.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = parseTeX.mm; sourceTree = "<group>"; };
+		2EADE3E1056EA12A004A4EFC /* BBLMTextIterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BBLMTextIterator.h; path = ../../Interfaces/BBLMTextIterator.h; sourceTree = SOURCE_ROOT; };
+		2EADE3E2056EA12A004A4EFC /* BBLMInterface.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BBLMInterface.h; path = ../../Interfaces/BBLMInterface.h; sourceTree = SOURCE_ROOT; };
+		56AB719519B3CDF80045726A /* DebugSettings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DebugSettings.xcconfig; path = ../DebugSettings.xcconfig; sourceTree = "<group>"; };
+		56AB719619B3CDF80045726A /* ReleaseSettings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ReleaseSettings.xcconfig; path = ../ReleaseSettings.xcconfig; sourceTree = "<group>"; };
+		56AB719819B3CDF80045726A /* SampleSharedLanguageModules.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SampleSharedLanguageModules.xcconfig; path = ../SampleSharedLanguageModules.xcconfig; sourceTree = "<group>"; };
+		5F05134505A0957400BD0E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F05134605A0957400BD0E76 /* TeX.bblm */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeX.bblm; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F05134105A0957400BD0E76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Hello World */ = {
+			isa = PBXGroup;
+			children = (
+				56AB719519B3CDF80045726A /* DebugSettings.xcconfig */,
+				56AB719619B3CDF80045726A /* ReleaseSettings.xcconfig */,
+				56AB719819B3CDF80045726A /* SampleSharedLanguageModules.xcconfig */,
+				08FB77ADFE841716C02AAC07 /* Source */,
+				2EADE40E056EA22B004A4EFC /* SDK Headers */,
+				5F05134505A0957400BD0E76 /* Info.plist */,
+				5F05134605A0957400BD0E76 /* TeX.bblm */,
+			);
+			name = "Hello World";
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D262B068B4F4D00DA0BE2 /* parseTeX.mm */,
+				2E1D2629068B4F4D00DA0BE2 /* scanTeX.mm */,
+				2E1D262A068B4F4D00DA0BE2 /* TeXModule.mm */,
+				2E1D2628068B4F4D00DA0BE2 /* TeXModule.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		2EADE40E056EA22B004A4EFC /* SDK Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2EADE3E1056EA12A004A4EFC /* BBLMTextIterator.h */,
+				2EADE3E2056EA12A004A4EFC /* BBLMInterface.h */,
+			);
+			name = "SDK Headers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5F05133A05A0957400BD0E76 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F05133B05A0957400BD0E76 /* BBLMTextIterator.h in Headers */,
+				5F05133C05A0957400BD0E76 /* BBLMInterface.h in Headers */,
+				2E1D262C068B4F4D00DA0BE2 /* TeXModule.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5F05133905A0957400BD0E76 /* TeX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4F91DC0863165E009D6578 /* Build configuration list for PBXNativeTarget "TeX" */;
+			buildPhases = (
+				5F05133A05A0957400BD0E76 /* Headers */,
+				5F05133E05A0957400BD0E76 /* Resources */,
+				5F05133F05A0957400BD0E76 /* Sources */,
+				5F05134105A0957400BD0E76 /* Frameworks */,
+				5F05134305A0957400BD0E76 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeX;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = "Hello World";
+			productReference = 5F05134605A0957400BD0E76 /* TeX.bblm */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+			};
+			buildConfigurationList = 2E4F91E00863165E009D6578 /* Build configuration list for PBXProject "TeX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Hello World */;
+			productRefGroup = 089C166AFE841209C02AAC07 /* Hello World */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F05133905A0957400BD0E76 /* TeX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F05133E05A0957400BD0E76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		5F05134305A0957400BD0E76 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F05133F05A0957400BD0E76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E1D262D068B4F4D00DA0BE2 /* scanTeX.mm in Sources */,
+				2E1D262E068B4F4D00DA0BE2 /* TeXModule.mm in Sources */,
+				2E1D262F068B4F4D00DA0BE2 /* parseTeX.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2E4F91DD0863165E009D6578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = TeX;
+				WRAPPER_EXTENSION = bblm;
+			};
+			name = Debug;
+		};
+		2E4F91DE0863165E009D6578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = TeX;
+				WRAPPER_EXTENSION = bblm;
+			};
+			name = Release;
+		};
+		2E4F91E10863165E009D6578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AB719519B3CDF80045726A /* DebugSettings.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_MODE_FLAG = "ug+w,o-w,a+rX";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		2E4F91E20863165E009D6578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AB719619B3CDF80045726A /* ReleaseSettings.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_MODE_FLAG = "ug+w,o-w,a+rX";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PREBINDING = NO;
+				SDKROOT = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E4F91DC0863165E009D6578 /* Build configuration list for PBXNativeTarget "TeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4F91DD0863165E009D6578 /* Debug */,
+				2E4F91DE0863165E009D6578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E4F91E00863165E009D6578 /* Build configuration list for PBXProject "TeX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4F91E10863165E009D6578 /* Debug */,
+				2E4F91E20863165E009D6578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

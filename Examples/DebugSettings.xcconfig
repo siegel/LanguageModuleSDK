@@ -1,0 +1,11 @@
+//	-*- x-counterpart: ReleaseSettings.xcconfig -*-
+
+#include "SampleSharedLanguageModules.xcconfig"
+
+//	any settings specific to debugging builds should go after this line ---
+
+GCC_PREPROCESSOR_DEFINITIONS = qDebug=1
+
+GCC_OPTIMIZATION_LEVEL = 0
+
+STRIP_INSTALLED_PRODUCT = NO

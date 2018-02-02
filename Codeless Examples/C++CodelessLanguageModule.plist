@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>__machdl</string>
+		<string>__pasobj</string>
+		<string>and</string>
+		<string>and_eq</string>
+		<string>asm</string>
+		<string>auto</string>
+		<string>bitand</string>
+		<string>bitor</string>
+		<string>bool</string>
+		<string>break</string>
+		<string>case</string>
+		<string>catch</string>
+		<string>char</string>
+		<string>class</string>
+		<string>compl</string>
+		<string>const</string>
+		<string>const_cast</string>
+		<string>continue</string>
+		<string>default</string>
+		<string>delete</string>
+		<string>do</string>
+		<string>double</string>
+		<string>dynamic_cast</string>
+		<string>else</string>
+		<string>enum</string>
+		<string>explicit</string>
+		<string>export</string>
+		<string>extern</string>
+		<string>false</string>
+		<string>float</string>
+		<string>for</string>
+		<string>friend</string>
+		<string>goto</string>
+		<string>if</string>
+		<string>inherited</string>
+		<string>inline</string>
+		<string>int</string>
+		<string>long</string>
+		<string>mutable</string>
+		<string>namespace</string>
+		<string>new</string>
+		<string>not</string>
+		<string>not_eq</string>
+		<string>operator</string>
+		<string>or</string>
+		<string>or_eq</string>
+		<string>pascal</string>
+		<string>private</string>
+		<string>protected</string>
+		<string>public</string>
+		<string>register</string>
+		<string>reinterpret_cast</string>
+		<string>return</string>
+		<string>short</string>
+		<string>signed</string>
+		<string>sizeof</string>
+		<string>static</string>
+		<string>static_cast</string>
+		<string>struct</string>
+		<string>switch</string>
+		<string>template</string>
+		<string>this</string>
+		<string>throw</string>
+		<string>true</string>
+		<string>try</string>
+		<string>typedef</string>
+		<string>typeid</string>
+		<string>typename</string>
+		<string>union</string>
+		<string>unsigned</string>
+		<string>using</string>
+		<string>virtual</string>
+		<string>void</string>
+		<string>volatile</string>
+		<string>wchar_t</string>
+		<string>while</string>
+		<string>xor</string>
+		<string>xor_eq</string>
+	</array>
+	<key>BBLMLanguageCode</key>
+	<string>CC++</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>Codeless C++ Language Module</string>
+	<key>BBLMScansFunctions</key>
+	<true/>
+	<key>Language Features</key>
+	<dict>
+		<key>Comment Pattern</key>
+		<string>(?x:
+			(?&gt;	//		.*			$				) |
+			(?&gt;	/\*		(?s:.*?)	(?: \*/ | \z )	)
+		)</string>
+		<key>Function Pattern</key>
+		<string>(?x:
+			(?P&lt;function&gt;
+			
+				(?P&lt;function_name&gt;
+					(?&gt; _* [A-Za-z] [A-Za-z0-9_]* )
+					(?:
+						(?:
+							(?&gt;
+								(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+							)
+						)*
+						::
+						(?:
+							(?&gt;
+								(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+							)
+						)*
+						~?	_* [A-Za-z] [A-Za-z0-9_]*
+					)?
+				)
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+					)
+				)*
+				
+				(?P&lt;parens&gt;
+					\(
+						(?:
+							(?&gt;
+								(?&gt; [^'"()]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string) | (?P&gt;parens)
+							)
+						)*
+					\)
+				)
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+					)
+				)*
+				
+				(?:
+					:
+					(?:
+						(?&gt;
+							(?&gt; [^'"{]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string)
+						)
+					)*
+				)?
+				
+				(?P&lt;braces&gt;
+					{
+						(?:
+							(?&gt;
+								(?&gt; [^'"{}]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string) | (?P&gt;braces)
+							)
+						)*
+					}
+				)
+			)
+		)</string>
+		<key>Identifier and Keyword Character Class</key>
+		<string>0-9A-Z_a-z</string>
+		<key>Skip Pattern</key>
+		<string>(?x:
+			(?&gt;
+				(?P&gt;comment) | (?P&gt;string)
+			)
+		)</string>
+		<key>String Pattern</key>
+		<string>(?x:
+			(?&gt;	"	(?s: \\. | [^"] )*?		(?: " | $)	)	|
+			(?&gt;	'	(?s: \\. | [^'] )*?		(?: ' | $)	)
+		)</string>
+	</dict>
+</dict>
+</plist>

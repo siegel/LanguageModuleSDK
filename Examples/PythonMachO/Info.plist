@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.barebones.bblm.examples.PythonExample</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleSignature</key>
+	<string>BBLM</string>
+	<key>CFBundleVersion</key>
+	<string>8.0</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>com.barebones.bblminfo</key>
+	<array>
+		<dict>
+			<key>BBLMCanGuessLanguage</key>
+			<true/>
+			<key>BBLMColorsSyntax</key>
+			<true/>
+			<key>BBLMIsCaseSensitive</key>
+			<true/>
+
+			<key>BBLMRunColors</key>
+			<dict>
+				<!--
+					there's nothing exotic here; these all map the internally generated run kinds to
+					built-in run kinds for coloring.
+				-->
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringSubst</key>
+				<string>==com.barebones.bblm.string</string>
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringTag</key>
+				<string>==com.barebones.bblm.sgml-tag</string>
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringTagAttr</key>
+				<string>==com.barebones.bblm.html.attribute-name</string>
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringTagVal</key>
+				<string>==com.barebones.bblm.html.attribute-value</string>
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringProcDir</key>
+				<string>==com.barebones.bblm.string</string>
+				
+				<key>com.barebones.bblm.EXAMPLE.pythonExample.stringComment</key>
+				<string>==com.barebones.bblm.comment</string>
+			</dict>
+			
+			<key>BBLMKeywords</key>
+			<array>
+				<dict>
+					<key>RunKind</key>
+					<string>com.barebones.bblm.keyword</string>
+				
+					<key>Keywords</key>
+					<array>
+						<string>__cmp__</string>
+						<string>__eq__</string>
+						<string>__future__</string>
+						<string>__ge__</string>
+						<string>__gt__</string>
+						<string>__le__</string>
+						<string>__lt__</string>
+						<string>__ne__</string>
+						<string>and</string>
+						<string>as</string>
+						<string>assert</string>
+						<string>break</string>
+						<string>class</string>
+						<string>continue</string>
+						<string>def</string>
+						<string>del</string>
+						<string>elif</string>
+						<string>else</string>
+						<string>except</string>
+						<string>exec</string>
+						<string>False</string>
+						<string>finally</string>
+						<string>for</string>
+						<string>from</string>
+						<string>global</string>
+						<string>if</string>
+						<string>import</string>
+						<string>in</string>
+						<string>is</string>
+						<string>lambda</string>
+						<string>None</string>
+						<string>not</string>
+						<string>or</string>
+						<string>pass</string>
+						<string>print</string>
+						<string>raise</string>
+						<string>return</string>
+						<string>self</string>
+						<string>True</string>
+						<string>try</string>
+						<string>with</string>
+						<string>while</string>
+						<string>yield</string>
+					</array>
+				</dict>
+			</array>
+			
+			<key>BBLMLanguageCode</key>
+			<string>XXPY</string>				<!-- edit this! -->
+			<key>BBLMLanguageDisplayName</key>
+			<string>Python Example Language Module</string>
+			<key>BBLMEntryPointName</key>
+			<string>PythonExampleMachO</string>
+			<key>BBLMScansFunctions</key>
+			<true/>
+			<key>BBLMFunctionScannerDoesFoldsToo</key>
+			<true/>
+			<key>BBLMSuffixMap</key>
+			<array>
+				<dict>
+					<key>BBLMLanguageSuffix</key>
+					<string>.pyxxx</string>	<!-- used only for illustration -->
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

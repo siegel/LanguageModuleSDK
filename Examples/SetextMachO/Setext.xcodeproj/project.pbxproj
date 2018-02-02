@@ -1,0 +1,178 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F05134005A0957400BD0E76 /* setext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E4853BA05A07363009789C1 /* setext.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E4853BA05A07363009789C1 /* setext.mm */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.objcpp; path = setext.mm; sourceTree = SOURCE_ROOT; };
+		2EADE3E1056EA12A004A4EFC /* BBLMTextIterator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BBLMTextIterator.h; path = ../../Interfaces/BBLMTextIterator.h; sourceTree = SOURCE_ROOT; };
+		2EADE3E2056EA12A004A4EFC /* BBLMInterface.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = BBLMInterface.h; path = ../../Interfaces/BBLMInterface.h; sourceTree = SOURCE_ROOT; };
+		56AB718D19B3CA8F0045726A /* DebugSettings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DebugSettings.xcconfig; path = ../DebugSettings.xcconfig; sourceTree = "<group>"; };
+		56AB718E19B3CA8F0045726A /* ReleaseSettings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = ReleaseSettings.xcconfig; path = ../ReleaseSettings.xcconfig; sourceTree = "<group>"; };
+		56AB719019B3CA8F0045726A /* SampleSharedLanguageModules.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = SampleSharedLanguageModules.xcconfig; path = ../SampleSharedLanguageModules.xcconfig; sourceTree = "<group>"; };
+		5F05134505A0957400BD0E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F05134605A0957400BD0E76 /* Setext.bblm */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Setext.bblm; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Hello World */ = {
+			isa = PBXGroup;
+			children = (
+				56AB718D19B3CA8F0045726A /* DebugSettings.xcconfig */,
+				56AB718E19B3CA8F0045726A /* ReleaseSettings.xcconfig */,
+				56AB719019B3CA8F0045726A /* SampleSharedLanguageModules.xcconfig */,
+				08FB77ADFE841716C02AAC07 /* Source */,
+				2EADE40E056EA22B004A4EFC /* SDK Headers */,
+				5F05134505A0957400BD0E76 /* Info.plist */,
+				5F05134605A0957400BD0E76 /* Setext.bblm */,
+			);
+			name = "Hello World";
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2E4853BA05A07363009789C1 /* setext.mm */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		2EADE40E056EA22B004A4EFC /* SDK Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2EADE3E1056EA12A004A4EFC /* BBLMTextIterator.h */,
+				2EADE3E2056EA12A004A4EFC /* BBLMInterface.h */,
+			);
+			name = "SDK Headers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F05133905A0957400BD0E76 /* Setext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E4F91CD0863164B009D6578 /* Build configuration list for PBXNativeTarget "Setext" */;
+			buildPhases = (
+				5F05133F05A0957400BD0E76 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Setext;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = "Hello World";
+			productReference = 5F05134605A0957400BD0E76 /* Setext.bblm */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 2E4F91D10863164B009D6578 /* Build configuration list for PBXProject "Setext" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Hello World */;
+			productRefGroup = 089C166AFE841209C02AAC07 /* Hello World */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F05133905A0957400BD0E76 /* Setext */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F05133F05A0957400BD0E76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F05134005A0957400BD0E76 /* setext.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2E4F91CE0863164B009D6578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_MODE_FLAG = "ug+w,o-w,a+rX";
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = Setext;
+				WRAPPER_EXTENSION = bblm;
+			};
+			name = Debug;
+		};
+		2E4F91CF0863164B009D6578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_MODE_FLAG = "ug+w,o-w,a+rX";
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = Setext;
+				WRAPPER_EXTENSION = bblm;
+			};
+			name = Release;
+		};
+		2E4F91D20863164B009D6578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AB718D19B3CA8F0045726A /* DebugSettings.xcconfig */;
+			buildSettings = {
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+			};
+			name = Debug;
+		};
+		2E4F91D30863164B009D6578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AB718E19B3CA8F0045726A /* ReleaseSettings.xcconfig */;
+			buildSettings = {
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E4F91CD0863164B009D6578 /* Build configuration list for PBXNativeTarget "Setext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4F91CE0863164B009D6578 /* Debug */,
+				2E4F91CF0863164B009D6578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E4F91D10863164B009D6578 /* Build configuration list for PBXProject "Setext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4F91D20863164B009D6578 /* Debug */,
+				2E4F91D30863164B009D6578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

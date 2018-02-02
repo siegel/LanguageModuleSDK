@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>append</string>
+		<string>array</string>
+		<string>break</string>
+		<string>case</string>
+		<string>catch</string>
+		<string>cd</string>
+		<string>close</string>
+		<string>concat</string>
+		<string>continue</string>
+		<string>else</string>
+		<string>elseif</string>
+		<string>eof</string>
+		<string>error</string>
+		<string>eval</string>
+		<string>exec</string>
+		<string>exit</string>
+		<string>expr</string>
+		<string>file</string>
+		<string>flush</string>
+		<string>for</string>
+		<string>foreach</string>
+		<string>format</string>
+		<string>gets</string>
+		<string>glob</string>
+		<string>global</string>
+		<string>history</string>
+		<string>if</string>
+		<string>incr</string>
+		<string>info</string>
+		<string>join</string>
+		<string>lappend</string>
+		<string>library</string>
+		<string>lindex</string>
+		<string>linsert</string>
+		<string>list</string>
+		<string>llength</string>
+		<string>lrange</string>
+		<string>lreplace</string>
+		<string>lsearch</string>
+		<string>lsort</string>
+		<string>menu</string>
+		<string>open</string>
+		<string>pid</string>
+		<string>proc</string>
+		<string>proc_doc</string>
+		<string>puts</string>
+		<string>pwd</string>
+		<string>read</string>
+		<string>regexp</string>
+		<string>regsub</string>
+		<string>rename</string>
+		<string>return</string>
+		<string>scan</string>
+		<string>scancontext</string>
+		<string>seek</string>
+		<string>set</string>
+		<string>source</string>
+		<string>split</string>
+		<string>string</string>
+		<string>switch</string>
+		<string>tell</string>
+		<string>then</string>
+		<string>time</string>
+		<string>trace</string>
+		<string>unknown</string>
+		<string>unset</string>
+		<string>uplevel</string>
+		<string>upvar</string>
+		<string>while</string>
+	</array>
+	<key>BBLMLanguageCode</key>
+	<string>CTcl</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>Codeless Tcl Language Module</string>
+	<key>BBLMScansFunctions</key>
+	<true/>
+	<key>Language Features</key>
+	<dict>
+		<key>Close Block Comments</key>
+		<string></string>
+		<key>Close Parameter Lists</key>
+		<string>}</string>
+		<key>Close Statement Blocks</key>
+		<string>}</string>
+		<key>Close Strings 1</key>
+		<string>'</string>
+		<key>Close Strings 2</key>
+		<string>"</string>
+		<key>End-of-line Ends Strings 1</key>
+		<false/>
+		<key>End-of-line Ends Strings 2</key>
+		<false/>
+		<key>Escape Char in Strings 1</key>
+		<string>\</string>
+		<key>Escape Char in Strings 2</key>
+		<string>\</string>
+		<key>Identifier and Keyword Characters</key>
+		<string>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz</string>
+		<key>Open Block Comments</key>
+		<string></string>
+		<key>Open Line Comments</key>
+		<string>#</string>
+		<key>Open Parameter Lists</key>
+		<string>{</string>
+		<key>Open Statement Blocks</key>
+		<string>{</string>
+		<key>Open Strings 1</key>
+		<string>'</string>
+		<key>Open Strings 2</key>
+		<string>"</string>
+		<key>Prefix for Functions</key>
+		<string>proc_doc</string>
+		<key>Prefix for Procedures</key>
+		<string>proc</string>
+		<key>Terminator for Prototypes 1</key>
+		<string></string>
+		<key>Terminator for Prototypes 2</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>
