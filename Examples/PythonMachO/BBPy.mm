@@ -160,7 +160,7 @@ bool colorstr(	UniChar delim,
 		else{
 			delims = 0;
 		}
-		if ((c=='\r'||c=='\n') && !tripple){
+		if ((BBLMCharacterIsLineBreak(c)) && !tripple){
 				break;
 		}
 		// Color python string subst things		
@@ -259,7 +259,7 @@ bool colorcomment(BBLMParamBlock &pb,
 {
 
 	while (UniChar c = nextchar(r,p, pb,NULL)){
-		if (c=='\r'|| c=='\n'){
+		if (BBLMCharacterIsLineBreak(c)){
 			break;
 		}
 	}
@@ -427,8 +427,7 @@ void eat_line(BBLMParamBlock &pb, UInt32& pos)
 	BBLMTextIterator	asciText(pb);
 
 	while (pos<pb.fTextLength){
-		char c = asciText[(pos)++];
-		if (c=='\r' || c=='\n'){
+		if (BBLMCharacterIsLineBreak(asciText[(pos)++])){
 			break;
 		}
 		else if  (pos+6<pb.fTextLength &&
@@ -448,7 +447,7 @@ void eat_line(BBLMParamBlock &pb, UInt32& pos)
 			eat3str('\'', pb, pos);
 		}
 	}
-	while ((asciText[pos]=='\r' || asciText[pos]=='\n') && pos<pb.fTextLength) {++pos;}
+	while ((BBLMCharacterIsLineBreak(asciText[pos])) && pos<pb.fTextLength) {++pos;}
 
 }
 
@@ -466,7 +465,7 @@ void addItem(BBLMProcInfo *procInfo,
 	OSErr err;
 
 	UInt32 funcstart = pos - (kind == kBBLMFunctionMark ? 3/*strlen("def")*/ : 5/*strlen("class")*/);
-	while (funcstart>0 && isspace(asciText[funcstart-1]) && asciText[funcstart-1] != 0x0D) {funcstart--;}
+	while (funcstart>0 && isspace(asciText[funcstart-1]) && (! BBLMCharacterIsLineBreak(asciText[funcstart-1]))) {funcstart--;}
 	
 	while (isspace(asciText[pos]) && pos<pb.fTextLength) {++pos;}
 	UInt32 fnamestart = pos;
@@ -510,7 +509,7 @@ void commitfunc(BBLMProcInfo &proc,
 		funcEnd--;
 		
 	// walk forwards to the end of the last line in the function
-	while (funcEnd < pb.fTextLength && textIter[funcEnd] != 0x0D)
+	while (funcEnd < pb.fTextLength && (! BBLMCharacterIsLineBreak(textIter[funcEnd])))
 		funcEnd++;
 
 	UInt32 index = 0;
@@ -527,7 +526,7 @@ void commitfunc(BBLMProcInfo &proc,
 		if (! isspace(textIter[rangeStart]))
 			lastNonWSChar = textIter[rangeStart];
 		
-		if (textIter[rangeStart] == 0x0D)
+		if (BBLMCharacterIsLineBreak(textIter[rangeStart]))
 		{
 			if (lastNonWSChar == ':')
 				break;
