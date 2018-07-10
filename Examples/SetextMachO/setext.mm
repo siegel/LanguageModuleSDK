@@ -43,7 +43,7 @@ OSErr	_ScanForFunctions(const UniChar *text,
 		curLength = 0;
 		cur_start = ix;
 		
-		while ( ( ix < extent ) && (*curChar != 0x0D) )
+		while ( ( ix < extent ) && ((! BBLMCharacterIsLineBreak(*curChar))) )
 		{
 			if ( curLength < ( kMaxLineLength - 1 ) )
 				curLine[curLength++] = *curChar;
