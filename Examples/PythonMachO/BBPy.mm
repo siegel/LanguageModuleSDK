@@ -380,6 +380,99 @@ bool matchword(BBLMParamBlock &pb, const char *pat , UInt32 &pos)
 }	
 
 static
+UInt32 skipTripleString(BBLMTextIterator &asciText, UInt32 pos, const UInt32 textLength)
+{
+	//
+	//	skip a triple-quoted string, leaving the iterator pointing at the
+	//	character following the last quote. We've already vetted the string
+	//	and the iterator is pointing at the first quote.
+	//
+	
+	const UniChar delimiter = asciText[pos];
+	
+	pos += 3;
+	
+	for (/*...*/; pos < textLength; pos++)
+	{
+		const UniChar	c = asciText[pos];
+		
+		switch (c)
+		{
+			default:
+				break;
+				
+			case '\\':
+				//	escapes the next character
+				pos++;
+				break;
+			
+			case '\'':
+			case '\"':
+			{
+				if (c == delimiter)
+				{
+					//
+					//	look ahead and see whether the next two characters are the same.
+					//	If so, we are done.
+					//
+					
+					if ((pos < (textLength - 2)) &&
+						(c == asciText[pos + 1]) &&
+						(c == asciText[pos + 2]))
+					{
+						return pos + 3;
+					}
+				}
+				
+				break;
+			}
+			
+		}
+	}
+	
+	return pos;
+}
+
+static
+UInt32 skipString(BBLMTextIterator &asciText, UInt32 pos, const UInt32 textLength)
+{
+	//
+	//	skip a single-quoted string, leaving the iterator pointing at the
+	//	character following the last quote.
+	//
+	
+	const UniChar delimiter = asciText[pos];
+	
+	for (++pos; pos < textLength; pos++)
+	{
+		const UniChar	c = asciText[pos];
+		
+		switch (c)
+		{
+			default:
+				break;
+				
+			case '\\':
+				//	escapes the next character
+				pos++;
+				break;
+			
+			case '\'':
+			case '\"':
+			{
+				if (c == delimiter)
+					return pos + 1;	//	we are done
+
+				break;
+			}
+		}
+	}
+	
+	return pos;
+
+}
+
+static
 int matchindent(BBLMParamBlock &pb, UInt32 &pos)
 {	
 	BBLMTextIterator	asciText(pb);
@@ -387,68 +480,75 @@ int matchindent(BBLMParamBlock &pb, UInt32 &pos)
 	int indent=0;
 		
 	while(pos<pb.fTextLength){
-		switch (/*(char)(pb.fTextIsUnicode?uniText[pos]:*/asciText[pos]/*)*/){
+		switch (asciText[pos]){
+		case '\'':
+		case '\"':
+		{
+			if ((pos < pb.fTextLength - 2) &&
+				(asciText[pos] == asciText[pos + 1]) &&
+				(asciText[pos] == asciText[pos + 2]))
+			{
+				//	it's a triple-quoted string
+				pos = skipTripleString(asciText, pos, pb.fTextLength);
+			}
+			else
+			{
+				//	just a single-delimited string
+				pos = skipString(asciText, pos, pb.fTextLength);
+			}
+			
+			continue;
+		}
+		
 		case ' ':
 			++pos;
 			indent++;
 			break;	
+
 		case '\t':
 			++pos;		
 			indent+=8;
 			break;
+
 		case '#':
 			return -1;
-			break;
+
 		default:
 			return indent;
-			break;
 		}
 	}
 	return indent;	
 }
 
-
 static
-void eat3str(char delim,BBLMParamBlock &pb, UInt32& pos)
+UInt32 eat_line(BBLMParamBlock &pb, UInt32 pos)
 {
 	BBLMTextIterator	asciText(pb);
 
-	while (pos<pb.fTextLength){ 
-		if (asciText[pos] == asciText[pos-1] == asciText[pos-2] == delim && (asciText[pos-3] != '\\' || asciText[pos-4] == '\\')){
+	while (pos<pb.fTextLength)
+	{
+		if (BBLMCharacterIsLineBreak(asciText[pos]))
+		{
+			//	we're done with this line
+			return pos + 1;	//	skip the line end
+		}
+		else
+		if ('#' == asciText[pos])
+		{
+			//	comment: stop looking and eat the rest of the line
 			break;
 		}
-		++pos;
-	}	
-}
-
-static
-void eat_line(BBLMParamBlock &pb, UInt32& pos)
-{
-	BBLMTextIterator	asciText(pb);
-
-	while (pos<pb.fTextLength){
-		if (BBLMCharacterIsLineBreak(asciText[(pos)++])){
-			break;
-		}
-		else if  (pos+6<pb.fTextLength &&
-					('\"' == asciText[pos]) &&
-					('\"' == asciText[pos+1]) &&
-					('\"' == asciText[pos+2]))
-		{
-			pos+=6;
-			eat3str('"', pb, pos);
-		}
-		else if  (pos+6<pb.fTextLength &&
-					('\'' == asciText[pos]) &&
-					('\'' == asciText[pos+1]) &&
-					('\'' == asciText[pos+2]))
-		{
-			pos+=6;
-			eat3str('\'', pb, pos);
-		}
+		else
+			pos++;	//	next character please
 	}
-	while ((BBLMCharacterIsLineBreak(asciText[pos])) && pos<pb.fTextLength) {++pos;}
-
+	
+	while (pos < pb.fTextLength)
+	{
+		if (BBLMCharacterIsLineBreak(asciText[pos++]))
+			return pos;
+	}
+	
+	return pos;
 }
 
 static
@@ -489,7 +589,6 @@ void addItem(BBLMProcInfo *procInfo,
 	
 	procInfo[nest].fKind = kind;
 	
-	procInfo[nest].fIndentLevel = nest;	//	indentation level of token
 	procInfo[nest].fFlags = 0;			//	token flags (see BBLMFunctionFlags)
 	procInfo[nest].fNameStart = offset;		//	char offset in token buffer of token name
 	procInfo[nest].fNameLength = funcnamelen;	//	length of token name
@@ -558,15 +657,16 @@ void ScanForFunctions(BBLMParamBlock &pb,
 	
 	UInt32 pos=0; // current character offset
 
-	while (pos<pb.fTextLength){
-		
+	while (pos<pb.fTextLength)
+	{
 		int start_line = pos;
 		int indent = matchindent(pb, pos);
 		
 		if (indent >= 0){
-			// When the indent level is back to what is was when we enecountered the 'def' the function is over. 
+			// When the indent level is back to what is was when we encountered the 'def' the function is over. 
 			while(nest > 0 && indent <= indents[nest-1]){ 
 				nest--;
+				funcs[nest].fIndentLevel = indent;
 				commitfunc(funcs[nest], start_line-1, pb, &bblm_callbacks);	
 			}
 			
@@ -577,13 +677,20 @@ void ScanForFunctions(BBLMParamBlock &pb,
 					nest++;
 				}
 				else if (matchword(pb, "class", pos)){
-					addItem(funcs, pos, nest, kBBLMTypedef, pb, &bblm_callbacks);
+					addItem(funcs, pos, nest, kBBLMFunctionClassDeclaration, pb, &bblm_callbacks);
 					indents[nest] = indent;					
 					nest++;
 				}
+				else
+				{
+					pos++;
+					continue;
+				}
 			}
 		}
-		eat_line(pb,pos);
+		
+		if (-1 == indent)
+			pos = eat_line(pb,pos);
 	}
 
 	while(nest > 0){ 
