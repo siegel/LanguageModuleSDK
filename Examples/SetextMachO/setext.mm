@@ -151,13 +151,13 @@ OSErr	_ScanForFunctions(BBLMParamBlock &params, const BBLMCallbackBlock *bblmCal
 	
 	// we assume that this is zero because the app sets it so
 	// for function scanner calls
-	require_action(0 == params.fTextGapLength, EXIT, result = paramErr);
+	__Require_Action(0 == params.fTextGapLength, EXIT, result = paramErr);
 	
-	require_noerr(result = bblmResetTokenBuffer(bblmCallbacks, params.fFcnParams.fTokenBuffer), EXIT);
+	__Require_noErr(result = bblmResetTokenBuffer(bblmCallbacks, params.fFcnParams.fTokenBuffer), EXIT);
 
-	require_noerr(result = bblmResetProcList(bblmCallbacks, params.fFcnParams.fFcnList), EXIT);
+	__Require_noErr(result = bblmResetProcList(bblmCallbacks, params.fFcnParams.fFcnList), EXIT);
 
-	require_noerr(result = _ScanForFunctions(params.fText, params, bblmCallbacks), EXIT);
+	__Require_noErr(result = _ScanForFunctions(params.fText, params, bblmCallbacks), EXIT);
 
 EXIT:
 	return result;

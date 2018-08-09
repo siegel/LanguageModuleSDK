@@ -4,7 +4,6 @@
 #define BBLMINTERFACE_h 1
 
 #ifndef __ASSERTMACROS__
-#define __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES	1
 #include <AssertMacros.h>
 #endif
 
@@ -61,6 +60,7 @@ typedef	enum
 	kBBLMLastCoreFunctionKind = 31,
 	kBBLMReservedFunctionKind,		//	do not generate any function entries with this kind!
 	kBBLMFirstUserFunctionKind,
+    kBBLMLastUserFunctionKind	= 126,
     
     // moved from HTMLFunctionScanner because they were used in a switch statement, and LLVM 4 noticed they weren't "real" BBLMFunctionKinds
     kHTMLFunctionJavascriptRun = 255,
@@ -146,7 +146,19 @@ typedef	enum
 #define	kBBLMKeywordRunKind					@"com.barebones.bblm.keyword"
 #define kBBLMSyntaxErrorRunKind				@"com.barebones.bblm.syntax-error"
 #define	kBBLMPredefinedSymbolRunKind		@"com.barebones.bblm.predefined-symbol"
-#define	kBBLMIndexedSymbolRunKind			@"com.barebones.bblm.indexed-symbol"
+#define	kBBLMIndexedSymbolRunKind			@"com.barebones.bblm.indexed-symbol"				//	ctags catchall
+#define	kBBLMIndexedClassNameRunKind		@"com.barebones.bblm.indexed-symbol.class-name"		//	ctags "c"
+#define	kBBLMIndexedDefineRunKind			@"com.barebones.bblm.indexed-symbol.define"			//	ctags "d"
+#define	kBBLMIndexedEnumerationRunKind		@"com.barebones.bblm.indexed-symbol.enum-member"	//	ctags "e"
+#define	kBBLMIndexedFunctionNameRunKind		@"com.barebones.bblm.indexed-symbol.function-name"	//	ctags "f"
+#define	kBBLMIndexedFileNameRunKind			@"com.barebones.bblm.indexed-symbol.filename"		//	ctags "F"
+#define	kBBLMIndexedEnumNameRunKind			@"com.barebones.bblm.indexed-symbol.enum-name"		//	ctags "g"
+#define	kBBLMIndexedMemberRunKind			@"com.barebones.bblm.indexed-symbol.member"			//	ctags "m"
+#define	kBBLMIndexedPrototypeRunKind		@"com.barebones.bblm.indexed-symbol.fcn-prototype"	//	ctags "p"
+#define	kBBLMIndexedStructureNameRunKind	@"com.barebones.bblm.indexed-symbol.structure-name"	//	ctags "s"
+#define	kBBLMIndexedTypeNameRunKind			@"com.barebones.bblm.indexed-symbol.typedef"		//	ctags "t"
+#define	kBBLMIndexedUnionNameRunKind		@"com.barebones.bblm.indexed-symbol.union"			//	ctags "u"
+#define	kBBLMIndexedVariableNameRunKind		@"com.barebones.bblm.indexed-symbol.variable"		//	ctags "v"
 #define	kBBLMSGMLCDATARunKind				@"com.barebones.bblm.sgml-cdata"		//	SGML unparsed character data (i.e. inside of a <![CDATA...]> block)
 #define	kBBLMSGMLPCDATARunKind				@"com.barebones.bblm.sgml-pcdata"		//	SGML parsed character data (i.e. things not in tags)
 #define	kBBLMSGMLEntityRunKind				@"com.barebones.bblm.sgml-entity"		//	an SGML/HTML/XML entity (named or numeric)
@@ -815,18 +827,18 @@ OSStatus	bblmAddFunctionToList(const BBLMCallbackBlock *callbacks,
 	OSStatus	err = noErr;
 	
 	//	basic parameter validation
-	require_action(nil != callbacks, EXIT, err = paramErr);
-	require_action(nil != tokenBuffer, EXIT, err = paramErr);
-	require_action(nil != procList, EXIT, err = paramErr);
-	require_action(nil != name, EXIT, err = paramErr);
+	__Require_Action(nil != callbacks, EXIT, err = paramErr);
+	__Require_Action(nil != tokenBuffer, EXIT, err = paramErr);
+	__Require_Action(nil != procList, EXIT, err = paramErr);
+	__Require_Action(nil != name, EXIT, err = paramErr);
 	
-	require_noerr(err = bblmAddCFStringTokenToBuffer(callbacks,
+	__Require_noErr(err = bblmAddCFStringTokenToBuffer(callbacks,
 														tokenBuffer,
 														name,
 														&info.fNameStart),
 					EXIT);
 	
-	require_noerr(err = bblmAddFunctionToList(callbacks,
+	__Require_noErr(err = bblmAddFunctionToList(callbacks,
 												procList,
 												info,
 												index),

@@ -840,11 +840,11 @@ BBLMTextUtils::createCFStringFromOffsets( SInt32 & start, SInt32 & stop, SInt32 
 	UniChar		*buffer = nil;
 	UniChar		*dst = chars;
 	
-	require( stop >= start, errorExitBadParameters );
+	__Require(stop >= start, errorExitBadParameters);
 	
 	if (strLength > kMaxStaticLength)
 	{
-		require(nil != (buffer = new UniChar[strLength]), errorExitAllocationFailed);
+		__Require(nil != (buffer = new UniChar[strLength]), errorExitAllocationFailed);
 		dst = buffer;
 	}
 	
@@ -853,7 +853,7 @@ BBLMTextUtils::createCFStringFromOffsets( SInt32 & start, SInt32 & stop, SInt32 
 	//	make the string
 	str = CFStringCreateWithCharacters( kCFAllocatorDefault, dst, strLength );
 	
-	require( NULL != str, errorExitCFStringCreateFailed );
+	__Require(NULL != str, errorExitCFStringCreateFailed);
 
 errorExitAllocationFailed:
 errorExitBadParameters:
@@ -876,7 +876,7 @@ BBLMTextUtils::createCFStringFromOffsetsWithPrefix( SInt32 & start, SInt32 & sto
 		CFMutableStringRef	result = nil;
 		
 		result = CFStringCreateMutableCopy(kCFAllocatorDefault, 0, prefix);
-		check(nil != result);
+		__Check(nil != result);
 		if (nil != result)
 			CFStringAppend(result, str);
 			
