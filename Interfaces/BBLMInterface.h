@@ -55,21 +55,9 @@ typedef	enum
 	kBBLMFunctionHTMLHeading5,
 	kBBLMFunctionHTMLHeading6,
 	
-	kBBLMLastUsedFunctionKind,	//	do not change or use this value; it should always
-								//	occur after the last factory defined value
-	kBBLMLastCoreFunctionKind = 31,
-	kBBLMReservedFunctionKind,		//	do not generate any function entries with this kind!
+	kBBLMReservedFunctionKind	=	32,		//	do not generate any function entries with this kind!
 	kBBLMFirstUserFunctionKind,
     kBBLMLastUserFunctionKind	= 126,
-    
-    // moved from HTMLFunctionScanner because they were used in a switch statement, and LLVM 4 noticed they weren't "real" BBLMFunctionKinds
-    kHTMLFunctionJavascriptRun = 255,
-    kHTMLFunctionPHPRun = 254,
-    kHTMLFunctionCSSRun	= 253,
-    kHTMLFunctionJSPRun = 252,
-    kHTMLFunctionASPRun = 251,
-    kHTMLFunctionRubyRun = 250
-
 } BBLMFunctionKinds;
 
 #define	kBBLMFunctionTypeGeneral				@"com.barebones.bblm.function-type.function"
