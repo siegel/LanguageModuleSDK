@@ -120,7 +120,6 @@ typedef	enum
 
 #define	kBBLMCodeRunKind					@"com.barebones.bblm.code"
 #define	kBBLMPreprocessorRunKind			@"com.barebones.bblm.preprocessor"
-#define	kBBLMPostPreprocessorRunKind		@"com.barebones.bblm.postpreprocessor"
 #define	kBBLMCommentRunKind					@"com.barebones.bblm.comment"			//	use for languages that don't distinguish between...
 #define	kBBLMLineCommentRunKind				@"com.barebones.bblm.line-comment"		//		...a "rest of line" comment, e.g. "//" in C or "#" in Ruby
 #define	kBBLMBlockCommentRunKind			@"com.barebones.bblm.block-comment"		//		...a begin/end delimited comment, e.g. /*...*/ in C
@@ -156,9 +155,6 @@ typedef	enum
 #define	kBBLMSGMLCloseTagRunKind			@"com.barebones.bblm.sgml-close-tag"	//	closers for openers (e.g. </ul>)
 #define kBBLMXMLPIRunKind					@"com.barebones.bblm.xml-pi"			//	processing instructions: <?...>
 #define	kBBLMXMLEmptyTagRunKind				@"com.barebones.bblm.xml-empty"			//	empty XML tags e.g. <hr />
-
-#define	kBBLMEmbeddedLanguageStartRunKind	@"com.barebones.bblm.embedded-start"	// zero-length runs, marking start or end
-#define	kBBLMEmbeddedLanguageEndRunKind		@"com.barebones.bblm.embedded-end"		// of languages, such as javascript in html
 
 enum
 {
