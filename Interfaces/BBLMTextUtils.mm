@@ -784,7 +784,7 @@ SInt32
 BBLMTextUtils::copyCollapsedRangeToBuffer( SInt32 & rangeStart, SInt32 & rangeEnd, UniChar * buffer, NSUInteger maxLength ) {
 	BBLMTextIterator	p( m_p );
 	SInt32				j = 0;
-	const NSUInteger	strLength = PIN(static_cast<NSUInteger>(rangeEnd - rangeStart + 1), maxLength);
+	const NSUInteger	strLength = MIN(static_cast<NSUInteger>(rangeEnd - rangeStart + 1), maxLength);
 	bool				flFirstChar = true,
 						flNeedSpace = false;
 
@@ -835,7 +835,7 @@ CFStringRef
 BBLMTextUtils::createCFStringFromOffsets( SInt32 & start, SInt32 & stop, SInt32 maxLength ) {
 	enum		{ kMaxStaticLength = 256 };
 	CFStringRef	str = NULL;
-	SInt32		strLength = PIN((stop - start) + 1, maxLength);
+	SInt32		strLength = MIN((stop - start) + 1, maxLength);
 	UniChar		chars[kMaxStaticLength];
 	UniChar		*buffer = nil;
 	UniChar		*dst = chars;
@@ -880,7 +880,7 @@ BBLMTextUtils::createCFStringFromOffsetsWithPrefix( SInt32 & start, SInt32 & sto
 		if (nil != result)
 			CFStringAppend(result, str);
 			
-		CFQRelease(str);
+		CFRelease(str);
 		
 		str = result;
 	}
